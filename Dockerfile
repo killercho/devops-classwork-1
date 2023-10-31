@@ -1,11 +1,11 @@
-# Specify the image which is being used
-FROM ubuntu:latest
+# Run distro as a base
+FROM alpine
 
 # Run the install and update commands
-RUN apt-get update -y
-RUN apt-get install -y python3 python3-pip python3-dev build-essential
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
 
-# Copy all the necessary files
+# Copy all the necessary files and install requirements
 COPY src/ /usr/src/app/
 RUN pip3 install -r /usr/src/app/requirements.txt
 
