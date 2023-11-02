@@ -23,3 +23,5 @@ python3 src/app.py
 
 ### Bonus
 - Optimize the size of the Docker image. Use a more minimal base image.
+
+# DONE :heavy_check_mark:
