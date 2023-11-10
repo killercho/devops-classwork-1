@@ -1,4 +1,4 @@
-name: Docker build and push
+name: Checking and pushing the files
 on: push
 jobs:
   build:
@@ -36,3 +36,8 @@ jobs:
           python-version: "3.11"
       - name: flake8 Lint
         uses: py-actions/flake8@v2
+      - name: Cheking editorconfig
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          EDITORCONFIG_FILE_NAME: .editorconfig
